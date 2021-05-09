@@ -31,8 +31,6 @@ const HomeScreen = ({ navigation }) => {
     });
   };
 
-  console.log('data', chats);
-
   useLayoutEffect(() => {
     navigation.setOptions({
       title: 'Signal',
@@ -71,11 +69,23 @@ const HomeScreen = ({ navigation }) => {
     });
   }, [navigation]);
 
+  const enterChat = (id, chatName) => {
+    navigation.navigate('Chat', {
+      id: id,
+      chatName: chatName,
+    });
+  };
+
   return (
     <SafeAreaView>
       <ScrollView style={styles.container}>
         {chats.map(({ id, data: { chatName } }) => (
-          <CustomListItem id={id} key={id} chatName={chatName} />
+          <CustomListItem
+            id={id}
+            key={id}
+            chatName={chatName}
+            enterChat={enterChat}
+          />
         ))}
       </ScrollView>
     </SafeAreaView>
