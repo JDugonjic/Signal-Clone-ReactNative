@@ -13,7 +13,6 @@ import { Keyboard } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native';
 import { auth, db } from '../firebase';
 import firebase from 'firebase';
-import { scrollTo } from 'react-native-reanimated';
 
 const ChatScreen = ({ navigation, route }) => {
   const [input, setInput] = useState('');
